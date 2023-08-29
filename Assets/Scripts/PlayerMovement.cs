@@ -27,3 +27,4 @@ public class PlayerMovement : MonoBehaviour
         characterController.SimpleMove(Physics.gravity);
     }
 }
+
