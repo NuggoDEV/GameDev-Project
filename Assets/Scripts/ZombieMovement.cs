@@ -6,6 +6,8 @@ public class ZombieMovement : MonoBehaviour
 {
     public float attackRange = 1.0f;
     public GameObject player;
+    public GameObject zombieAttack;
+    public Transform attackingPart;
     public Transform rotate;
     private UnityEngine.AI.NavMeshAgent navAgent;
     public Rigidbody rigidBody;
@@ -27,7 +29,7 @@ public class ZombieMovement : MonoBehaviour
     {
         float distance = (player.transform.position - transform.position).magnitude;
 
-        if (follow == true)
+        if (follow)
         {
             if (distance > attackRange & attacking == false) //The zombie chases the player until it is within range
             {
@@ -54,6 +56,12 @@ public class ZombieMovement : MonoBehaviour
                 rotate.LookAt(player.transform);
             }
         } //If the zombie isn't chasinig the player, it'll do nothing
+
+        else //if the zombie is attacking, or something's gone wrong, the zombie stops
+        {
+            navAgent.acceleration = 50;
+            navAgent.isStopped = true; //I'll write some more code here to get it to actually attack, placeholder for now - Code written
+        }
     }
 
     public IEnumerator Attack() //The actual attack procces of the zombie
@@ -61,6 +69,8 @@ public class ZombieMovement : MonoBehaviour
         Debug.Log("Zombie Attacks");
         attacking = true;
         yield return new WaitForSeconds(0.5f);
+        GameObject temp = Instantiate(zombieAttack, attackingPart.position, attackingPart.rotation);
+        yield return new WaitForSeconds(1.0f);
         attacking = false;
         Debug.Log("Zombie recovers");
     }
