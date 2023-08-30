@@ -12,8 +12,8 @@ public enum BattleState { START, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
-    Unit PlayerUnit;
-    Unit ZombieCoreUnit;
+    public Unit PlayerUnit;
+    public Unit ZombieCoreUnit;
 
     public BattleState state;
 
@@ -45,10 +45,7 @@ public class BattleSystem : MonoBehaviour
 
 
 
-        if (PlayerUnit.currentHP >= 0 )  //Once we have an enemy attack coded in move this script to there, to check  if the player is dead
-        {
-            GameOverUI.SetActive(true);
-        }
+        
     } 
 
 }

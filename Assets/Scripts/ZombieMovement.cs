@@ -53,7 +53,7 @@ public class ZombieMovement : MonoBehaviour
 
             if (rotate != null)
             {
-                rotate.LookAt(player.transform);
+                transform.rotation.Set(0, player.transform.position.y, 0, 0);
             }
         } //If the zombie isn't chasinig the player, it'll do nothing
 
