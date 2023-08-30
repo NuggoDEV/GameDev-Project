@@ -32,12 +32,21 @@ public class ZombieMovement : MonoBehaviour
             if (distance > attackRange & attacking == false) //The zombie chases the player until it is within range
             {
                 navAgent.SetDestination(player.transform.position);
+                navAgent.acceleration = 5;
                 navAgent.isStopped = false;
             }
 
-            else
+            else if (distance <= attackRange & attacking == false) //if the zombie is in range and isn't already attacking; attack
             {
-                navAgent.isStopped = true; //I'll write some more code here to get it to actually attack, placeholder for now
+                navAgent.acceleration = 50;
+                navAgent.isStopped = true;
+                StartCoroutine(Attack());
+            }
+
+            else //if the zombie is attacking, or something's gone wrong, the zombie stops
+            {
+                navAgent.acceleration = 50;
+                navAgent.isStopped = true; //I'll write some more code here to get it to actually attack, placeholder for now - Code written
             }
 
             if (rotate != null)
@@ -45,6 +54,15 @@ public class ZombieMovement : MonoBehaviour
                 rotate.LookAt(player.transform);
             }
         } //If the zombie isn't chasinig the player, it'll do nothing
+    }
+
+    public IEnumerator Attack() //The actual attack procces of the zombie
+    {
+        Debug.Log("Zombie Attacks");
+        attacking = true;
+        yield return new WaitForSeconds(0.5f);
+        attacking = false;
+        Debug.Log("Zombie recovers");
     }
 
     //When the player enters or exits the Zombie's detection range this tells the Zombie to chase or stop, respectively
@@ -66,4 +84,5 @@ public class ZombieMovement : MonoBehaviour
 
     }
     // I think i'll set up a second, smaller radius with its own object to get the zombies to attack the plants if they aren't chasing the player
+    // that broke the script, I'ma just use the attack range
 }
