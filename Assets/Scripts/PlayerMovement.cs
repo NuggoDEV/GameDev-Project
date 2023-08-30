@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.eulerAngles += 5 * new Vector3(0, Input.GetAxis("Mouse X"));
 
-        transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up * Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime);
         characterController.Move(transform.forward * Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime);
         characterController.Move(transform.right * Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime);
         characterController.SimpleMove(Physics.gravity);
