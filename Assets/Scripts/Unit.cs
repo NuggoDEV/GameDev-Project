@@ -13,7 +13,10 @@ public class Unit : MonoBehaviour
 	public float defense;
 	public float maxHP;
 	public float currentHP;
-
+	public int Amount_of_Sun;
+	public int Amount_of_Money;
+	public int Item_Number_1;
+	public int Item_Number_2;
 
 	private void Start()
 	{
