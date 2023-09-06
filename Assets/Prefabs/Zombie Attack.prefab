@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingTime: 0.8
-  damage: 20
-  knockback: 2
+  damage: 5
+  knockback: 5
   script: {fileID: 0}
   battleScript: {fileID: 0}
