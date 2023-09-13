@@ -10,7 +10,7 @@ public class ZombieMovement : MonoBehaviour
     public Transform attackingPart;
     public Transform rotate;
     private UnityEngine.AI.NavMeshAgent navAgent;
-    public Rigidbody rigidBody;
+    public Rigidbody rb;
     public bool follow;
     public bool attacking;
 
@@ -19,8 +19,8 @@ public class ZombieMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        rigidBody = GetComponent<Rigidbody>();
-        follow = false; //The zombie starts inactive, waiting for the player to enter its chase range
+        rb = GetComponent<Rigidbody>();
+        follow = true; //The zombie starts active now
         attacking = false; //the zombie is not attackinig by default
     }
 
@@ -71,12 +71,13 @@ public class ZombieMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GameObject temp = Instantiate(zombieAttack, attackingPart.position, attackingPart.rotation);
         yield return new WaitForSeconds(1.0f);
+        transform.LookAt(player.transform.position);
         attacking = false;
         Debug.Log("Zombie recovers");
     }
 
     //When the player enters or exits the Zombie's detection range this tells the Zombie to chase or stop, respectively
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -92,7 +93,7 @@ public class ZombieMovement : MonoBehaviour
             follow = false;
         }
 
-    }
+    }*/ //removing this for the time being
     // I think i'll set up a second, smaller radius with its own object to get the zombies to attack the plants if they aren't chasing the player
     // that broke the script, I'ma just use the attack range
 }
