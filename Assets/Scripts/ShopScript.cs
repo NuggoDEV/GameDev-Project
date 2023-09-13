@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Unity.VisualScripting;
+
 public class ShopScript : MonoBehaviour
 {
     public Unit PlayerUnit;
     public GameObject Crazy_Dave_Shop_Panel;
-    public Text Crazy_Dave_Talking;
+    public TMP_Text Crazy_Dave_Talking;
 
     public void On_Item_Number_1_Button() 
     {
@@ -43,9 +46,22 @@ public class ShopScript : MonoBehaviour
     {
         Crazy_Dave_Talking.text = "bye bye, see you later";
         yield return new WaitForSeconds(2f);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Crazy_Dave_Shop_Panel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Crazy_Dave_Shop_Panel.SetActive(true);
+            Debug.Log("Shop Working");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0f;
+        }
+    }
 
 }
