@@ -6,11 +6,10 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     /// <summary>
-    /// To access these you may need to do AddComponent<WaveManager>().actionname
     /// Usage:
     /// <code>
     /// void StartWave(int wave, int count) { // Whatever you want to do on activation }
-    /// void Awake() { startWave += StartWave; }
+    /// void Awake() { GameObject.Find("GameManager").GetComponent<WaveManager>().startWave += StartWave; }
     /// </code>
     /// </summary>
     public Action<int, int> startWave;
