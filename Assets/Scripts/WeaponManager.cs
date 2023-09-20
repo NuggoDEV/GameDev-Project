@@ -13,7 +13,7 @@ public class WeaponManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon = GameObject.FindGameObjectWithTag("Peashooter"); //default weapon is peashooter
+        weapon = GameObject.FindGameObjectWithTag("Weapon"); //default weapon is peashooter
         weaponScript = weapon.GetComponent<WeaponScript>(); //access the weapon's script
 
     }

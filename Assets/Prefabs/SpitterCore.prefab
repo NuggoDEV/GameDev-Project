@@ -121,6 +121,7 @@ MonoBehaviour:
   follow: 0
   attacking: 0
   attackRecover: 2
+  burstSize: 10
 --- !u!195 &4419445790003941563
 NavMeshAgent:
   m_ObjectHideFlags: 0

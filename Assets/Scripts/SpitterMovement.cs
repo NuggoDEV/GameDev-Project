@@ -74,6 +74,7 @@ public class SpitterMovement : MonoBehaviour
         Debug.Log("Spitter Attacks");
         attacking = true;
         yield return new WaitForSeconds(0.5f);
+        transform.LookAt(player.transform.position);
         for (int i = 0; i < burstSize; i++)
         {
             GameObject temp = Instantiate(spitterAttack, attackingPart.position, attackingPart.rotation);
