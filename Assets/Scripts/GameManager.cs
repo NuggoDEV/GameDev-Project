@@ -5,20 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject PauseScreen;
-    public GameObject AreYouSurePanel;
-    public void play()
-    {
-        SceneManager.LoadScene("LevelScene");
-    }
-    public void quit()
-    {
-        Application.Quit();
-    }
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
+    [SerializeField] private GameObject PauseScreen;
+    [SerializeField] private GameObject AreYouSurePanel;
+    public void Play() => SceneManager.LoadScene("LevelScene");
+    public void Quit() => Application.Quit();
+    public void MainMenu() => SceneManager.LoadScene("MainMenu");
     public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -28,9 +19,7 @@ public class GameManager : MonoBehaviour
     public void AreYouSure()
     {
         PauseScreen.SetActive(false);
-
         AreYouSurePanel.SetActive(true);
-
     }
     public void No() 
     {
@@ -45,7 +34,6 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
             PauseScreen.SetActive(true);
-
         }
     }
 }
