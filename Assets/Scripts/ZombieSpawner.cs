@@ -11,6 +11,7 @@ public class ZombieSpawner : MonoBehaviour
     public GameObject gameManager;
     public WaveManager waveScript;
     public float spawnCounter;
+    private float timer = 0;
     private float xOffset;
 
 
@@ -33,7 +34,7 @@ public class ZombieSpawner : MonoBehaviour
                 spawnCounter++;
             }
 
-            else if ( spawnCounter == 5)
+            else if (spawnCounter == 5)
             {
                 Instantiate(spitter, new Vector3(enemySpawner.transform.position.x + xOffset, enemySpawner.transform.position.y, enemySpawner.transform.position.z), enemySpawner.transform.rotation);
                 spawnCounter = 0;
@@ -46,10 +47,15 @@ public class ZombieSpawner : MonoBehaviour
     {
         enemyCounter = GameObject.FindGameObjectsWithTag("Zombie"); //continously checks how many zombies exist
         xOffset = Random.Range(-10, 10);
-
+        Debug.Log(enemyCounter.Length);
         if (enemyCounter.Length <= 0)
         {
-            waveScript.FinishWave(false);
+            timer = timer + Time.deltaTime;
+            if (timer >= 5)
+            {
+                waveScript.FinishWave(false);
+                timer = 0;
+            }
         }
     }
 }
