@@ -28,8 +28,15 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            if (weaponScript.projectile.tag == "Projectile")
+            {
+                GameObject temp = Instantiate(weaponScript.projectile, spawnTransform.position, spawnTransform.rotation);
+            }
+            else if (weaponScript.projectile.tag == "Melee")
+            {
+                GameObject temp = Instantiate(weaponScript.projectile, spawnTransform.position, spawnTransform.rotation);
+            }
             Debug.Log("Fire!");
-            GameObject temp = Instantiate(weaponScript.projectile, spawnTransform.position, spawnTransform.rotation);
             attack = true;
         }
         else
