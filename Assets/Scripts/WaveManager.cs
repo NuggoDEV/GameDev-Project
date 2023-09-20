@@ -6,14 +6,17 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     /// <summary>
+    /// To access these you may need to do AddComponent<WaveManager>().actionname
     /// Usage:
     /// <code>
     /// void StartWave(int wave, int count) { // Whatever you want to do on activation }
     /// void Awake() { startWave += StartWave; }
     /// </code>
     /// </summary>
-    public static Action<int, int> startWave;
+    public Action<int, int> startWave;
     public Action finishWave;
+
+    public int wave { get; private set; } = 1;
 
     void Start() => StartCoroutine(StartWaveCoroutine(1));
     public void FinishWave(bool playerDied) => StartCoroutine(FinishWaveCoroutine(playerDied));
