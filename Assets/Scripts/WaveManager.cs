@@ -33,7 +33,7 @@ public class WaveManager : MonoBehaviour
     {
         finishWave?.Invoke();
 
-        if (playerDied)
+        if (!playerDied)
             yield return StartCoroutine(StartWaveCoroutine(1));
         yield return EndGame();
     }
