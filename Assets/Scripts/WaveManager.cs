@@ -21,6 +21,7 @@ public class WaveManager : MonoBehaviour
     private IEnumerator StartWaveCoroutine(int wave)
     {
         Debug.Log("Pls");
+        yield return new WaitForSeconds(5);
         startWave?.Invoke(wave, 10);
 
         yield return null;
