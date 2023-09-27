@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed = 1;
     [SerializeField] private float rotateSpeed = 1;
     private CharacterController characterController;
-    public bool lockCamera = true;
+    public bool lockCamera = false;
     private float yRotation = 0;
 
     private void Start()

@@ -15,6 +15,8 @@ public class Melon : MonoBehaviour
     public GameObject bomb;
     Collision2D weaponCollider;
     Rigidbody rb;
+    PlayerMovement script;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,9 @@ public class Melon : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/MelonBomb.prefab", typeof(GameObject));
         bomb = prefab as GameObject;
+        player = GameObject.Find("PlayerBody");
+        script = player.GetComponent<PlayerMovement>();
+        script.lockCamera = true;
     }
 
     // Update is called once per frame
@@ -32,6 +37,7 @@ public class Melon : MonoBehaviour
         if (timer >= lifeTime)
         {
             GameObject temp = Instantiate(bomb, gameObject.transform.position, gameObject.transform.rotation);
+            script.lockCamera = false;
             Destroy(gameObject);
         }
 
@@ -41,6 +47,7 @@ public class Melon : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             GameObject temp = Instantiate(bomb, gameObject.transform.position, gameObject.transform.rotation);
+            script.lockCamera = false;
             Destroy(gameObject);
         }
     }
@@ -49,6 +56,7 @@ public class Melon : MonoBehaviour
     {
         Debug.Log("Melon hit something");
         GameObject temp = Instantiate(bomb, gameObject.transform.position, gameObject.transform.rotation);
+        script.lockCamera = false;
         Destroy(gameObject);
     }
 }
