@@ -296,8 +296,9 @@ MonoBehaviour:
   spitter: {fileID: 4419445790003941566, guid: 626ab8a75c9bb0b489e0c73eac1f6af9, type: 3}
   enemySpawner: {fileID: 64955577}
   enemyCounter: []
+  gameManager: {fileID: 0}
+  waveScript: {fileID: 0}
   spawnCounter: 0
-  minEnemy: 4
 --- !u!4 &64955579
 Transform:
   m_ObjectHideFlags: 0
@@ -665,7 +666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234653178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 1.35}
+  m_LocalPosition: {x: 0, y: 2.728, z: 1.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -687,8 +688,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  spawnWeapon: {fileID: 0}
   weaponScript: {fileID: 0}
   spawnTransform: {fileID: 455630614}
+  weaponTransform: {fileID: 0}
   attack: 0
 --- !u!1 &242536779
 GameObject:
@@ -3530,8 +3533,8 @@ GameObject:
   - component: {fileID: 1487519405}
   - component: {fileID: 1487519404}
   m_Layer: 0
-  m_Name: Cube (2)
-  m_TagString: Untagged
+  m_Name: Ground
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -3895,6 +3898,7 @@ GameObject:
   - component: {fileID: 1491894048}
   - component: {fileID: 1491894050}
   - component: {fileID: 1491894051}
+  - component: {fileID: 1491894052}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3959,6 +3963,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7762b1d20fc134d4cb7f0c89b98efdec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1491894052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491894047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebbf6a2e593a92409e3648b87b9d22a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potPlantCount: 5
+  potPlant: {fileID: 539113529590504610, guid: 554886c2c1b04114baf61192e50efa51, type: 3}
 --- !u!1 &1646045646
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,7 +4732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
-  force: 0
+  self: {fileID: 0}
   weaponName: Peashooter
   attack: 0
 --- !u!1 &1972597710
