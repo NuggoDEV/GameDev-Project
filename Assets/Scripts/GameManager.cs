@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject AreYouSurePanel;
+    [SerializeField] private GameObject InventoryPanel;
+
     public void Play() => SceneManager.LoadScene("LevelScene");
     public void Quit() => Application.Quit();
     public void MainMenu() => SceneManager.LoadScene("MainMenu");
@@ -15,13 +17,14 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         PauseScreen.SetActive(false);
+        InventoryPanel.SetActive(false);
     }
     public void AreYouSure()
     {
         PauseScreen.SetActive(false);
         AreYouSurePanel.SetActive(true);
     }
-    public void No() 
+    public void No()
     {
         AreYouSurePanel.SetActive(false);
         PauseScreen.SetActive(true);
