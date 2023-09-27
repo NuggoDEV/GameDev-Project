@@ -6,8 +6,7 @@ public class SpitterAttack : MonoBehaviour
 {
     public float swingTime = 0.2f;
     private float timer;
-    public float damage = 3;
-    public float knockback = 1;
+    public float damage = 1;
     public Unit script;
     public BattleSystem battleScript;
 
@@ -40,13 +39,25 @@ public class SpitterAttack : MonoBehaviour
         {
             script = other.GetComponent<Unit>();
             script.currentHP = script.currentHP - damage;
-            Vector3 knockbackDealt = (other.transform.position - transform.position).normalized;
-            other.GetComponent<CharacterController>().Move(knockbackDealt * knockback);
             if (script.currentHP <= 0)  //Once we have an enemy attack coded in move this script to there, to check  if the player is dead
             {
                 battleScript.GameOverUI.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+            }
+            Destroy(gameObject);
+        }
+
+        if (other.tag == "Projectile")
+        {
+            if (other.name == "Pea")
+            {
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
     }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4419445789200285969}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackingPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3491800630781978792}
   - component: {fileID: 4419445790003942213}
   - component: {fileID: 9104794605562996360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ZombieCore
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieCore: {fileID: 4419445790003941566}
+  zombieBits: {fileID: 0}
   maxHP: 10
   currentHP: 0
 --- !u!114 &4419445790003942213
@@ -192,7 +193,7 @@ GameObject:
   - component: {fileID: 4419445790334355719}
   - component: {fileID: 4419445790334355718}
   - component: {fileID: 4419445790334355713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +285,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4419445790334355716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef126771ea8e33447a08280d8db5ab08, type: 3}
   m_Name: 

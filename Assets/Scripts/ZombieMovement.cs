@@ -29,6 +29,8 @@ public class ZombieMovement : MonoBehaviour
     {
         float distance = (player.transform.position - transform.position).magnitude;
 
+        transform.rotation.Set(0, player.transform.position.y, 0, 0);
+
         if (follow)
         {
             if (distance > attackRange & attacking == false) //The zombie chases the player until it is within range
@@ -51,16 +53,25 @@ public class ZombieMovement : MonoBehaviour
                 navAgent.isStopped = true; //I'll write some more code here to get it to actually attack, placeholder for now - Code written
             }
 
-            if (rotate != null)
+            /*if (rotate != null)
             {
                 transform.rotation.Set(0, player.transform.position.y, 0, 0);
-            }
+            }*/
         } //If the zombie isn't chasinig the player, it'll do nothing
 
         else //if the zombie is attacking, or something's gone wrong, the zombie stops
         {
             navAgent.acceleration = 50;
             navAgent.isStopped = true; //I'll write some more code here to get it to actually attack, placeholder for now - Code written
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.other.tag == "Zombie")
+        {
+            int Enemy = LayerMask.NameToLayer("Enemy");
+            gameObject.layer = Enemy;
         }
     }
 

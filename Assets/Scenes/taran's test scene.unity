@@ -688,8 +688,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  spawnWeapon: {fileID: 0}
   weaponScript: {fileID: 0}
   spawnTransform: {fileID: 455630614}
+  weaponTransform: {fileID: 234653179}
   attack: 0
 --- !u!1 &242536779
 GameObject:
@@ -1011,7 +1013,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4466346679174808758, guid: 5ea9231dedeec2d409e5bf6f3d90456c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4466346679174808758, guid: 5ea9231dedeec2d409e5bf6f3d90456c, type: 3}
       propertyPath: m_LocalPosition.x

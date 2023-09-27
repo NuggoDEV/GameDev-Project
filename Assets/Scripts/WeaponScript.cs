@@ -15,18 +15,7 @@ public class WeaponScript : MonoBehaviour
     {
         weaponName = self.name;
 
-        if (weaponName == "HeldPeashooter")
-        {
-            var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Pea.prefab", typeof(GameObject));
-            projectile = prefab as GameObject;
-        }
-
-        if (weaponName == "HeldChomper")
-        {
-            var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Chomp.prefab", typeof(GameObject));
-            projectile = prefab as GameObject;
-        }
-
+        
         /*if (weaponName == "Peashooter")
         {
             var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Pea.prefab", typeof(GameObject));
@@ -43,7 +32,23 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (weaponName == "HeldPeashooter" || weaponName == "HeldPeashooter(Clone)")
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Pea.prefab", typeof(GameObject));
+            projectile = prefab as GameObject;
+        }
 
+        if (weaponName == "HeldChomper" || weaponName == "HeldChomper(Clone)")
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Chomp.prefab", typeof(GameObject));
+            projectile = prefab as GameObject;
+        }
+
+        if (weaponName == "HeldMelon" || weaponName == "HeldMelon(Clone)")
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Melon.prefab", typeof(GameObject));
+            projectile = prefab as GameObject;
+        }
     }
 }
 

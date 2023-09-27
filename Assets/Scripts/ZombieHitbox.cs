@@ -42,11 +42,23 @@ public class ZombieHitbox : MonoBehaviour
             Debug.Log("Zombie Damaged");
             if (collision.gameObject.name == "Pea(Clone)")
             {
-                currentHP = currentHP - 4;
+                Pea script = collision.gameObject.GetComponent<Pea>();
+                currentHP = currentHP - script.damage;
             }
             else if (collision.gameObject.name == "Chomp(Clone)")
             {
-                currentHP = currentHP - 10;
+                Chomp script = collision.gameObject.GetComponent<Chomp>();
+                currentHP = currentHP - script.damage;
+            }
+            else if (collision.gameObject.name == "Melon(Clone)")
+            {
+                Melon script = collision.gameObject.GetComponent<Melon>();
+                currentHP = currentHP - script.damage;
+            }
+            else if (collision.gameObject.name == "MelonBomb(Clone)")
+            {
+                MelonBomb script = collision.gameObject.GetComponent<MelonBomb>();
+                currentHP = currentHP - script.damage;
             }
             else
             {

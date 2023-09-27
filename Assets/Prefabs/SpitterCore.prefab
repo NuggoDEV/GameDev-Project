@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4419445789200285969}
   - component: {fileID: 1377348059560054349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackingPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 3491800630781978792}
   - component: {fileID: 4419445790003942213}
   - component: {fileID: 9104794605562996360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpitterCore
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieCore: {fileID: 4419445790003941566}
+  zombieBits: {fileID: 0}
   maxHP: 30
   currentHP: 0
 --- !u!114 &4419445790003942213
@@ -208,7 +209,7 @@ GameObject:
   - component: {fileID: 4419445790334355719}
   - component: {fileID: 4419445790334355718}
   - component: {fileID: 4419445790334355713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
