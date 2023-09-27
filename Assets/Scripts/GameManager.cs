@@ -35,5 +35,11 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             PauseScreen.SetActive(true);
         }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            Debug.Log("a");
+            GetComponent<PotPlant>().PlacePotPlant();
+        }
     }
 }
