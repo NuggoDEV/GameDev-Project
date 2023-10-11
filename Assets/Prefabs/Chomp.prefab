@@ -111,10 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d847aaa7fb9fa4ab22a838aa5b3894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 1
+  lifeTime: 0.5
   damage: 10
   stun: 0.6
-  knockback: 1
+  knockback: 50
   weaponMask:
     serializedVersion: 2
     m_Bits: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1558609182101647428}
   - component: {fileID: 1558609182101647451}
   - component: {fileID: 807489727229900935}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ZombieBit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

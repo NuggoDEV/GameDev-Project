@@ -36,7 +36,7 @@ public class ZombieMovement : MonoBehaviour
             if (distance > attackRange & attacking == false) //The zombie chases the player until it is within range
             {
                 navAgent.SetDestination(player.transform.position);
-                navAgent.acceleration = 5;
+                navAgent.acceleration = 50;
                 navAgent.isStopped = false;
             }
 

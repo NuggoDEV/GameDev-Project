@@ -72,6 +72,7 @@ public class SpitterMovement : MonoBehaviour
     public IEnumerator Attack() //The actual attack procces of the spitter
     {
         Debug.Log("Spitter Attacks");
+        //rb.velocity = new Vector3(0, 0, 0);
         attacking = true;
         yield return new WaitForSeconds(0.5f);
         transform.LookAt(player.transform.position);

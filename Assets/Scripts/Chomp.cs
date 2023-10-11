@@ -8,7 +8,7 @@ public class Chomp : MonoBehaviour
     private float timer;
     public int damage = 10;
     public float stun = 0.6f;
-    public float knockback = 0.4f;
+    public float knockback = 2f;
     public LayerMask weaponMask;
     Collision2D weaponCollider;
     Rigidbody rb;

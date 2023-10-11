@@ -50,7 +50,7 @@ public class SpitterAttack : MonoBehaviour
 
         if (other.tag == "Projectile")
         {
-            if (other.name == "Pea")
+            if (other.name == "Pea(Clone)")
             {
                 Destroy(other.gameObject);
                 Destroy(gameObject);

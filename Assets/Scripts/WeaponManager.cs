@@ -11,6 +11,9 @@ public class WeaponManager : MonoBehaviour
     public Transform spawnTransform; //Where the projectile is fired from
     public Transform weaponTransform;
     public bool attack = false;
+    public float reload1 = 0;
+    public float reload2 = 0;
+    public float reload3 = 0;
 
 
     // Start is called before the first frame update
@@ -23,6 +26,10 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        reload1 = reload1 - Time.deltaTime;
+        reload2 = reload2 - Time.deltaTime;
+        reload3 = reload3 - Time.deltaTime;
+
         if (Input.GetKeyDown("1"))
         {
             Destroy(weapon);
@@ -56,13 +63,20 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (weaponScript.projectile.tag == "Projectile")
+            if (weaponScript.projectile.name == "Pea" && reload1 <= 0)
             {
                 GameObject temp = Instantiate(weaponScript.projectile, spawnTransform.position, spawnTransform.rotation);
+                reload1 = weaponScript.cooldown;
             }
-            else if (weaponScript.projectile.tag == "Melee")
+            else if (weaponScript.projectile.name == "Chomp" && reload2 <= 0)
             {
                 GameObject temp = Instantiate(weaponScript.projectile, spawnTransform.position, spawnTransform.rotation);
+                reload2 = weaponScript.cooldown;
+            }
+            else if (weaponScript.projectile.name == "Melon" && reload3 <= 0)
+            {
+                GameObject temp = Instantiate(weaponScript.projectile, spawnTransform.position, spawnTransform.rotation);
+                reload3 = weaponScript.cooldown;
             }
             Debug.Log("Fire!");
             attack = true;
