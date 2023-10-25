@@ -208,8 +208,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1019961203}
-        m_TargetAssemblyTypeName: MainMenuGameManager, Assembly-CSharp
-        m_MethodName: quit
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -436,6 +436,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427f74f85e1357f4ea2f8bf0bbcc50ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseScreen: {fileID: 0}
+  AreYouSurePanel: {fileID: 0}
+  InventoryPanel: {fileID: 0}
 --- !u!1 &1062034439
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,8 +829,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1019961203}
-        m_TargetAssemblyTypeName: MainMenuGameManager, Assembly-CSharp
-        m_MethodName: play
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
