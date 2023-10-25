@@ -24,7 +24,7 @@ public class WaveManager : MonoBehaviour
     {
         Debug.Log("Pls");
         
-        startWave?.Invoke(wave, 10);
+        startWave?.Invoke(wave, (int) Math.Round(((wave * 1.5) + 2) * 1.75));
 
         yield return null;
     }
@@ -33,7 +33,7 @@ public class WaveManager : MonoBehaviour
         finishWave?.Invoke();
 
         if (!playerDied)
-            yield return StartCoroutine(StartWaveCoroutine(1));
+            yield return StartCoroutine(StartWaveCoroutine(wave++));
         yield return EndGame();
     }
 
