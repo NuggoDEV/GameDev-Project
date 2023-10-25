@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
+
 
 public class WeaponManager : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class WeaponManager : MonoBehaviour
     public float reload1 = 0;
     public float reload2 = 0;
     public float reload3 = 0;
+    public Slider CoolDownSlider;
+    public int counter = 0;
 
 
     // Start is called before the first frame update
@@ -23,6 +27,7 @@ public class WeaponManager : MonoBehaviour
         weaponScript = weapon.GetComponent<WeaponScript>(); //access the weapon's script
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +35,14 @@ public class WeaponManager : MonoBehaviour
         reload2 = reload2 - Time.deltaTime;
         reload3 = reload3 - Time.deltaTime;
 
+        if (Input.GetMouseButtonDown(0)) counter++;
+        CoolDownSlider.value = counter;
+        Debug.Log(counter + " cooldown number ");
+        if (counter == 5)
+        {
+
+            StartCoroutine(Coolingdown());
+        }
         if (Input.GetKeyDown("1"))
         {
             Destroy(weapon);
@@ -85,5 +98,13 @@ public class WeaponManager : MonoBehaviour
         {
             return;
         }
+    }
+    IEnumerator Coolingdown()
+    {
+        attack = false;
+        yield return new WaitForSeconds(5f);
+        counter = 0;
+        attack = true;
+
     }
 }
