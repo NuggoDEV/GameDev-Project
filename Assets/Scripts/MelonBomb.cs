@@ -48,9 +48,9 @@ public class MelonBomb : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "EnemyProjectile")
+        /*if (other.gameObject.tag == "EnemyProjectile")
         {
             Destroy(other.gameObject);
-        }
+        }*/
     }
 }
