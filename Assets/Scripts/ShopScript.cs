@@ -9,6 +9,8 @@ public class ShopScript : MonoBehaviour
     public Unit PlayerUnit;
     public GameObject Crazy_Dave_Shop_Panel;
     public TMP_Text Crazy_Dave_Talking;
+    public GameObject HPanel;
+    public GameObject CoolDownPanel;
 
     public void On_Item_Number_1_Button() 
     {
@@ -48,6 +50,8 @@ public class ShopScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        HPanel.SetActive(true);
+        CoolDownPanel.SetActive(true);
         Crazy_Dave_Shop_Panel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -56,6 +60,8 @@ public class ShopScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            HPanel.SetActive(false);
+            CoolDownPanel.SetActive(false);
             Crazy_Dave_Shop_Panel.SetActive(true);
             Debug.Log("Shop Working");
             Cursor.lockState = CursorLockMode.None;
