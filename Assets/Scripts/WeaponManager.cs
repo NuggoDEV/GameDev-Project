@@ -16,9 +16,15 @@ public class WeaponManager : MonoBehaviour
     public GameObject Chomper;
     public GameObject Melon;
     public ShopScript script;
+    GameManager gameManager;
 
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+    }
     void Start()
     {
         weapon = GameObject.FindGameObjectWithTag("Weapon"); //default weapon is peashooter
@@ -67,23 +73,31 @@ public class WeaponManager : MonoBehaviour
             weapon.transform.Rotate(90, 0, 0, Space.Self);
             weaponScript = weapon.GetComponent<WeaponScript>();
         }
-        
-
-        if (Input.GetKeyDown("2") /*&& script.Weapon_2_Buy*/)
+        if (gameManager.Weapon_2_Buy == true)
         {
-            Destroy(weapon);
-            weapon = Instantiate(Chomper, weaponTransform.position, weaponTransform.rotation, weaponTransform);
-            weapon.transform.Rotate(90, 0, 0, Space.Self);
-            weaponScript = weapon.GetComponent<WeaponScript>();
+            if (Input.GetKeyDown("2") /*&& script.Weapon_2_Buy*/)
+            {
+                Destroy(weapon);
+                weapon = Instantiate(Chomper, weaponTransform.position, weaponTransform.rotation, weaponTransform);
+                weapon.transform.Rotate(90, 0, 0, Space.Self);
+                weaponScript = weapon.GetComponent<WeaponScript>();
+            }
+        }
+        if (gameManager.Weapon_3_Buy == true)
+        {
+            if (Input.GetKeyDown("3")/* && script.Weapon_3_Buy*/)
+            {
+                Destroy(weapon);
+                weapon = Instantiate(Melon, weaponTransform.position, weaponTransform.rotation, weaponTransform);
+                weapon.transform.Rotate(90, 0, 0, Space.Self);
+                weaponScript = weapon.GetComponent<WeaponScript>();
+            }
         }
 
-        if (Input.GetKeyDown("3")/* && script.Weapon_3_Buy*/)
-        {
-            Destroy(weapon);
-            weapon = Instantiate(Melon, weaponTransform.position, weaponTransform.rotation, weaponTransform);
-            weapon.transform.Rotate(90, 0, 0, Space.Self);
-            weaponScript = weapon.GetComponent<WeaponScript>();
-        }
+
+
+
+
 
 
 

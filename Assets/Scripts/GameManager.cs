@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject AreYouSurePanel;
     [SerializeField] private GameObject InventoryPanel;
     [SerializeField] private GameObject GameOverPanel;
-    public int Sun = 0;
-    public int Coins = 0;
+    public int Sun = 30;
+    public int Coins = 30;
+    public bool Weapon_3_Buy = false;
+    public bool Weapon_2_Buy = false;
 
     public void Play() => SceneManager.LoadScene("GameScene");
     public void Quit() => Application.Quit();
