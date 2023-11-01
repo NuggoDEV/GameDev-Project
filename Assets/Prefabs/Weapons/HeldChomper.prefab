@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e7fa7bc182c6a4d97e574d8dd0feef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 4792968354149660852, guid: ff3d188e5f576494da6ec1f352a4d8c7, type: 3}
   self: {fileID: 4466346679174808759}
   weaponName: Peashooter
   cooldown: 0

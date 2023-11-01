@@ -8,7 +8,6 @@ public class WeaponManager : MonoBehaviour
     public WeaponScript weaponScript;
     public Transform spawnTransform; //Where the projectile is fired from
     public Transform weaponTransform;
-    public bool attack = false;
     public float reload1 = 0;
     public float reload2 = 0;
     public float reload3 = 0;
@@ -59,7 +58,7 @@ public class WeaponManager : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Fire1") && attack)
+        if (Input.GetButtonDown("Fire1"))
         {
             if (weaponScript.projectile.name == "Pea" && reload1 <= 0)
             {
@@ -77,7 +76,6 @@ public class WeaponManager : MonoBehaviour
                 reload3 = weaponScript.cooldown;
             }
             Debug.Log("Fire!");
-            attack = true;
         }
     }
 }
