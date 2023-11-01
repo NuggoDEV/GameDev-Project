@@ -29,9 +29,36 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        reload1 = reload1 - Time.deltaTime;
-        reload2 = reload2 - Time.deltaTime;
-        reload3 = reload3 - Time.deltaTime;
+        if (reload1 > 0)
+        {
+            reload1 = reload1 - Time.deltaTime;
+        }
+        else if (reload1 < 0)
+        {
+            reload1 = 0;
+        }
+
+
+        if (reload2 > 0)
+        {
+            reload2 = reload2 - Time.deltaTime;
+        }
+        else if (reload2 < 0)
+        {
+            reload2 = 0;
+        }
+
+        if (reload3 > 0)
+        {
+            reload3 = reload3 - Time.deltaTime;
+        }
+        else if (reload3 < 0)
+        {
+            reload3 = 0;
+        }
+
+
+
 
         if (Input.GetKeyDown("1"))
         {
@@ -40,6 +67,7 @@ public class WeaponManager : MonoBehaviour
             weapon.transform.Rotate(90, 0, 0, Space.Self);
             weaponScript = weapon.GetComponent<WeaponScript>();
         }
+        
 
         if (Input.GetKeyDown("2") /*&& script.Weapon_2_Buy*/)
         {
@@ -56,6 +84,7 @@ public class WeaponManager : MonoBehaviour
             weapon.transform.Rotate(90, 0, 0, Space.Self);
             weaponScript = weapon.GetComponent<WeaponScript>();
         }
+
 
 
         if (Input.GetButtonDown("Fire1"))
