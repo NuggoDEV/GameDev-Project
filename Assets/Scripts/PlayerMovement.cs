@@ -38,14 +38,6 @@ public class PlayerMovement : MonoBehaviour
         characterController.SimpleMove(Physics.gravity);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "sun")
-        {
-            Debug.Log("collected");
-            GameObject.Find("GameManager").GetComponent<GameManager>().Sun += 1;
-            Destroy(other.gameObject);
-        }
-    }
+   
 }
 

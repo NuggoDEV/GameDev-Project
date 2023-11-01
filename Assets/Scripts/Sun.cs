@@ -7,12 +7,13 @@ public class Sun : MonoBehaviour
 {
     void OnCollisionEnter(Collision other)
     {
-        /*Debug.Log("hello");
+        Debug.Log("collision");
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("collected");
+            Debug.Log("COllided with player");
+            //Debug.Log("collected");
             GameObject.Find("GameManager").GetComponent<GameManager>().Sun += 1;
-            Destroy(this);
-        }*/
+            Destroy(gameObject);
+        }
     }
 }

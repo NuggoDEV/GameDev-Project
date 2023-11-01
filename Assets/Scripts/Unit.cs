@@ -6,15 +6,14 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-
-	public string unitName;
+    public int Amount_of_Sun;
+    public int Amount_of_Money;
+    public string unitName;
 	public int unitLevel;
 	public float damage;
 	public float defense;
 	public float maxHP;
 	public float currentHP;
-	public int Amount_of_Sun;
-	public int Amount_of_Money;
 	public int Item_Number_1;
 	public int Item_Number_2;
 

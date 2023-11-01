@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject InventoryPanel;
     [SerializeField] private GameObject GameOverPanel;
     public int Sun = 0;
+    public int Coins = 0;
 
     public void Play() => SceneManager.LoadScene("GameScene");
     public void Quit() => Application.Quit();

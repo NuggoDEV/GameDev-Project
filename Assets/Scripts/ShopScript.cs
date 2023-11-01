@@ -11,12 +11,19 @@ public class ShopScript : MonoBehaviour
     public TMP_Text Crazy_Dave_Talking;
     public bool Weapon_2_Buy = false;
     public bool Weapon_3_Buy = false;
+    GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+    }
 
     public void On_Item_Number_1_Button()
     {
-        if (PlayerUnit.Amount_of_Sun >= 25)
+        if (gameManager.Sun >= 25)
         {
-            PlayerUnit.Amount_of_Sun = PlayerUnit.Amount_of_Sun - 25;
+            gameManager.Sun -= 25;
             Weapon_2_Buy = true;
             Crazy_Dave_Talking.text = "Thank you for shopping at Crazy Daves";
         }
@@ -28,9 +35,9 @@ public class ShopScript : MonoBehaviour
     }
     public void On_Item_Number_2_Button()
     {
-        if (PlayerUnit.Amount_of_Sun >= 25)
+        if (gameManager.Coins >= 25)
         {
-            PlayerUnit.Amount_of_Money = PlayerUnit.Amount_of_Money - 25;
+            gameManager.Coins -= 25;
             Weapon_3_Buy = true;
             Crazy_Dave_Talking.text = "Thank you for shopping at Crazy Daves";
         }
