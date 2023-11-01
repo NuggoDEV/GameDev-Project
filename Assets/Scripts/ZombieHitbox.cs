@@ -15,8 +15,8 @@ public class ZombieHitbox : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
-        var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/ZombieBit.prefab", typeof(GameObject));
-        zombieBits = prefab as GameObject;
+        //var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/ZombieBit.prefab", typeof(GameObject));
+        //zombieBits = prefab as GameObject;
     }
 
     // Update is called once per frame

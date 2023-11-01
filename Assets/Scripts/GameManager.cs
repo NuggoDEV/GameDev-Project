@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject AreYouSurePanel;
     [SerializeField] private GameObject InventoryPanel;
+    [SerializeField] private GameObject GameOverPanel;
+    public int Sun = 0;
 
-    public void Play() => SceneManager.LoadScene("LevelScene");
+    public void Play() => SceneManager.LoadScene("GameScene");
     public void Quit() => Application.Quit();
     public void MainMenu() => SceneManager.LoadScene("MainMenu");
     public void Resume()
@@ -30,13 +32,13 @@ public class GameManager : MonoBehaviour
         PauseScreen.SetActive(true);
     }
 
-    public void Update()
+    /*public void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             PauseScreen.SetActive(true);
         }
-    }
+    }*/
 }

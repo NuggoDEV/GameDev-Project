@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieCore: {fileID: 4419445790003941566}
-  zombieBits: {fileID: 0}
+  zombieBits: {fileID: 1558609182101647450, guid: 1da7e37e15c7f914481c36cf4a2ebbbd, type: 3}
   maxHP: 10
   currentHP: 0
 --- !u!114 &4419445790003942213

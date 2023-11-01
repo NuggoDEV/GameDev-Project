@@ -9,24 +9,24 @@ public class ShopScript : MonoBehaviour
     public Unit PlayerUnit;
     public GameObject Crazy_Dave_Shop_Panel;
     public TMP_Text Crazy_Dave_Talking;
-    public bool Weapon_2_Buy = false
-    public bool Weapon_3_Buy = false
+    public bool Weapon_2_Buy = false;
+    public bool Weapon_3_Buy = false;
 
-    public void On_Item_Number_1_Button() 
+    public void On_Item_Number_1_Button()
     {
-        if(PlayerUnit.Amount_of_Sun >= 25)
+        if (PlayerUnit.Amount_of_Sun >= 25)
         {
             PlayerUnit.Amount_of_Sun = PlayerUnit.Amount_of_Sun - 25;
             Weapon_2_Buy = true;
             Crazy_Dave_Talking.text = "Thank you for shopping at Crazy Daves";
         }
-        else 
+        else
         {
             Crazy_Dave_Talking.text = "You cant afford that";
         }
 
     }
-    public void On_Item_Number_2_Button() 
+    public void On_Item_Number_2_Button()
     {
         if (PlayerUnit.Amount_of_Sun >= 25)
         {
@@ -39,12 +39,12 @@ public class ShopScript : MonoBehaviour
             Crazy_Dave_Talking.text = "You cant afford that";
         }
     }
-    public void OnReturnButton() 
+    public void OnReturnButton()
     {
         StartCoroutine(OnReturnButtonCoroutine());
 
     }
-    IEnumerator OnReturnButtonCoroutine() 
+    IEnumerator OnReturnButtonCoroutine()
     {
         Crazy_Dave_Talking.text = "bye bye, see you later";
         yield return new WaitForSeconds(2f);

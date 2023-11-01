@@ -21,8 +21,8 @@ public class BossScript : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
-        var bits = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/ZombieBit.prefab", typeof(GameObject));
-        zombieBits = bits as GameObject;
+        //var bits = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/ZombieBit.prefab", typeof(GameObject));
+        //zombieBits = bits as GameObject;
     }
 
     // Update is called once per frame

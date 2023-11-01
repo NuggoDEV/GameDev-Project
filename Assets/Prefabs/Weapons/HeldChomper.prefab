@@ -113,4 +113,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   self: {fileID: 4466346679174808759}
   weaponName: Peashooter
-  attack: 0
+  cooldown: 0
+  Pea: {fileID: 6726457443770622719, guid: dcb4b9217da4e234783833de8f129803, type: 3}
+  Chomp: {fileID: 4792968354149660852, guid: ff3d188e5f576494da6ec1f352a4d8c7, type: 3}
+  Melon: {fileID: 6726457443770622719, guid: c8c088ec9a614b64da0731aabb8ae266, type: 3}

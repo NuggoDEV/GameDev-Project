@@ -16,18 +16,11 @@ public class Sunflower : MonoBehaviour
         if (timer > waitTime)
         {
             //Debug.Log("sun");
-            Instantiate(sun, transform.position, transform.rotation);
+            Instantiate(sun, new Vector3(transform.position.x + -2f, transform.position.y, transform.position.z), transform.rotation);
 
             timer = timer - waitTime;
         }
      }
 
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "sun")
-        {
-            Amount_of_Sun += 1; //sun amount goes up by one
-            Destroy(sun);
-        }
-    }
+    
 }

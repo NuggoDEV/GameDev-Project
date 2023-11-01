@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -34,6 +36,16 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(transform.forward * Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime);
         characterController.Move(transform.right * Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime);
         characterController.SimpleMove(Physics.gravity);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "sun")
+        {
+            Debug.Log("collected");
+            GameObject.Find("GameManager").GetComponent<GameManager>().Sun += 1;
+            Destroy(other.gameObject);
+        }
     }
 }
 

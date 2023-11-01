@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Projectile
   - Peashooter
+  - sun
   layers:
   - Default
   - TransparentFX

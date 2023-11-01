@@ -17,14 +17,15 @@ public class Melon : MonoBehaviour
     Rigidbody rb;
     PlayerMovement script;
     public GameObject player;
+    public GameObject prefab;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = 0;
         rb = GetComponent<Rigidbody>();
-        var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/MelonBomb.prefab", typeof(GameObject));
-        bomb = prefab as GameObject;
+        //var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/MelonBomb.prefab", typeof(GameObject));
+        bomb = prefab;// as GameObject;
         player = GameObject.Find("PlayerBody");
         script = player.GetComponent<PlayerMovement>();
         script.lockCamera = true;

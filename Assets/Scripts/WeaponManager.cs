@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+using System.Linq;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -15,12 +13,18 @@ public class WeaponManager : MonoBehaviour
     public float reload2 = 0;
     public float reload3 = 0;
 
+    public GameObject PeaShooter;
+    public GameObject Chomper;
+    public GameObject Melon;
+    public ShopScript script;
+
 
     // Start is called before the first frame update
     void Start()
     {
         weapon = GameObject.FindGameObjectWithTag("Weapon"); //default weapon is peashooter
         weaponScript = weapon.GetComponent<WeaponScript>(); //access the weapon's script
+        script = Resources.FindObjectsOfTypeAll<ShopScript>().FirstOrDefault();
     }
 
     // Update is called once per frame
@@ -33,50 +37,29 @@ public class WeaponManager : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             Destroy(weapon);
-            var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Weapons/HeldPeashooter.prefab", typeof(GameObject));
-            spawnWeapon = prefab as GameObject;
-            weapon = Instantiate(spawnWeapon, weaponTransform.position, weaponTransform.rotation, weaponTransform);
+            weapon = Instantiate(PeaShooter, weaponTransform.position, weaponTransform.rotation, weaponTransform);
             weapon.transform.Rotate(90, 0, 0, Space.Self);
             weaponScript = weapon.GetComponent<WeaponScript>();
         }
 
-        if (Input.GetKeyDown("2"))
+        if (Input.GetKeyDown("2") /*&& script.Weapon_2_Buy*/)
         {
-            if (Weapon_2_Buy = true)
-            {
-                Destroy(weapon);
-                var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Weapons/HeldChomper.prefab", typeof(GameObject));
-                spawnWeapon = prefab as GameObject;
-                weapon = Instantiate(spawnWeapon, weaponTransform.position, weaponTransform.rotation, weaponTransform);
-                weapon.transform.Rotate(90, 0, 0, Space.Self);
-                weaponScript = weapon.GetComponent<WeaponScript>();
-            }
-            else 
-            { 
-            
-            }
-
+            Destroy(weapon);
+            weapon = Instantiate(Chomper, weaponTransform.position, weaponTransform.rotation, weaponTransform);
+            weapon.transform.Rotate(90, 0, 0, Space.Self);
+            weaponScript = weapon.GetComponent<WeaponScript>();
         }
 
-        if (Input.GetKeyDown("3"))
+        if (Input.GetKeyDown("3")/* && script.Weapon_3_Buy*/)
         {
-            if (Weapon_3_buy = true) 
-            {
-                Destroy(weapon);
-                var prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Weapons/HeldMelon.prefab", typeof(GameObject));
-                spawnWeapon = prefab as GameObject;
-                weapon = Instantiate(spawnWeapon, weaponTransform.position, weaponTransform.rotation, weaponTransform);
-                weapon.transform.Rotate(90, 0, 0, Space.Self);
-                weaponScript = weapon.GetComponent<WeaponScript>();
-            }
-            else 
-            {
-                
-            }
+            Destroy(weapon);
+            weapon = Instantiate(Melon, weaponTransform.position, weaponTransform.rotation, weaponTransform);
+            weapon.transform.Rotate(90, 0, 0, Space.Self);
+            weaponScript = weapon.GetComponent<WeaponScript>();
         }
 
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && attack)
         {
             if (weaponScript.projectile.name == "Pea" && reload1 <= 0)
             {
@@ -95,10 +78,6 @@ public class WeaponManager : MonoBehaviour
             }
             Debug.Log("Fire!");
             attack = true;
-        }
-        else
-        {
-            return;
         }
     }
 }

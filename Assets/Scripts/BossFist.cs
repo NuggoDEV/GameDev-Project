@@ -35,10 +35,11 @@ public class BossFist : MonoBehaviour
         target = GameObject.Find("TrackerFist");
         warnerSpawner = GameObject.Find("WarnerSpawner");
         currentHP = maxHP;
-        var bits = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/ZombieBit.prefab", typeof(GameObject));
-        zombieBits = bits as GameObject;
-        var striker = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/StrikeWarner.prefab", typeof(GameObject));
-        strikeWarner = striker as GameObject;
+        //var bits = 
+         //   .LoadAssetAtPath("Assets/Prefabs/ZombieBit.prefab", typeof(GameObject));
+        //zombieBits = bits as GameObject;
+        //var striker = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/StrikeWarner.prefab", typeof(GameObject));
+        //strikeWarner = striker as GameObject;
     }
 
     // Update is called once per frame
