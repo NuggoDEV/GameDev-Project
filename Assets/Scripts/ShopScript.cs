@@ -10,6 +10,7 @@ public class ShopScript : MonoBehaviour
     public GameObject Crazy_Dave_Shop_Panel;
     public TMP_Text Crazy_Dave_Talking;
     public Button button1, button2;
+    public Unit script;
     GameManager gameManager;
 
     private void Awake()
@@ -55,6 +56,22 @@ public class ShopScript : MonoBehaviour
         Crazy_Dave_Shop_Panel.SetActive(false);
         Time.timeScale = 1f;
 
+    }
+    public void Heal()
+    {
+        if (gameManager.Coins >= 2 && gameManager.Sun >= 3)
+        {
+            gameManager.Sun -= 3;
+            gameManager.Coins -= 2;
+            script.currentHP = script.maxHP;
+            Crazy_Dave_Talking.text = "Thank you for shopping at Crazy Daves";
+        }
+        else
+        {
+            Crazy_Dave_Talking.text = "You cant afford that";
+        }
+
+    
     }
 
 
