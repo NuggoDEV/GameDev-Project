@@ -216,8 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22af6fa3634f70c4dbd9b9b203d1f835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 15
+  movementSpeed: 10
   rotateSpeed: 50
+  lockCamera: 0
 --- !u!114 &4851374718028031459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,9 +231,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd54225bc6628074a96d8df42211f58a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOverPanel: {fileID: 0}
   unitName: Player
   unitLevel: 0
   damage: 0
   defense: 0
-  maxHP: 20
-  currentHP: 20
+  maxHP: 50
+  currentHP: 1
+  Item_Number_1: 0
+  Item_Number_2: 0

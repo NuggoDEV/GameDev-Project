@@ -29,7 +29,8 @@ public class WaveManager : MonoBehaviour
     private IEnumerator FinishWaveCoroutine()
     {
         finishWave?.Invoke();
-        yield return StartCoroutine(StartWaveCoroutine(wave++));
+        wave++;
+        yield return StartCoroutine(StartWaveCoroutine(wave));
     }
 
     private IEnumerator EndGame()
