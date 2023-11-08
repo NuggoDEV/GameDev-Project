@@ -33,9 +33,5 @@ public class Pea : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Pea hit something");
-        Destroy(gameObject);
-    }
+    void OnCollisionEnter(Collision collision) => Destroy(gameObject);
 }

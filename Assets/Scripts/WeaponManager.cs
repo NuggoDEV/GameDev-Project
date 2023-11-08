@@ -63,9 +63,6 @@ public class WeaponManager : MonoBehaviour
             reload3 = 0;
         }
 
-
-
-
         if (Input.GetKeyDown("1"))
         {
             Destroy(weapon);
@@ -94,13 +91,6 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
-
-
-
-
-
-
-
         if (Input.GetButtonDown("Fire1"))
         {
             if (weaponScript.projectile.name == "Pea" && reload1 <= 0)
@@ -118,7 +108,6 @@ public class WeaponManager : MonoBehaviour
                 GameObject temp = Instantiate(weaponScript.projectile, spawnTransform.position, spawnTransform.rotation);
                 reload3 = weaponScript.cooldown;
             }
-            Debug.Log("Fire!");
         }
     }
 }

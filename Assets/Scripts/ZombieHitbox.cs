@@ -36,10 +36,8 @@ public class ZombieHitbox : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("ZombieHit");
         if (collision.gameObject.tag == "Projectile")
         {
-            Debug.Log("Zombie Damaged");
             if (collision.gameObject.name == "Pea(Clone)")
             {
                 Pea script = collision.gameObject.GetComponent<Pea>();

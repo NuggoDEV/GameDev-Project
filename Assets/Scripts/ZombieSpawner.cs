@@ -46,7 +46,6 @@ public class ZombieSpawner : MonoBehaviour
     {
         enemyCounter = GameObject.FindGameObjectsWithTag("Zombie"); //continously checks how many zombies exist
         xOffset = Random.Range(-10, 10);
-        Debug.Log(enemyCounter.Length);
         if (enemyCounter.Length <= 0)
         {
             timer = timer + Time.deltaTime;

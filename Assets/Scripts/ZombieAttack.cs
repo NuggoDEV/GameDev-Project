@@ -47,13 +47,9 @@ public class ZombieAttack : MonoBehaviour
         {
             script = other.GetComponent<Unit>();
             script.currentHP = script.currentHP - damage;
-            Debug.Log(script.currentHP + " HP");
-            //hpSlider.value = script.currentHP;
             Vector3 knockbackDealt = (other.transform.position - transform.position).normalized;
             other.GetComponent<CharacterController>().Move(knockbackDealt * knockback);
 
-            }
         }
     }
-
-
+}

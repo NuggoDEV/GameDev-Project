@@ -77,14 +77,12 @@ public class ZombieMovement : MonoBehaviour
 
     public IEnumerator Attack() //The actual attack procces of the zombie
     {
-        Debug.Log("Zombie Attacks");
         attacking = true;
         yield return new WaitForSeconds(0.5f);
         GameObject temp = Instantiate(zombieAttack, attackingPart.position, attackingPart.rotation);
         yield return new WaitForSeconds(1.0f);
         transform.LookAt(player.transform.position);
         attacking = false;
-        Debug.Log("Zombie recovers");
     }
 
     //When the player enters or exits the Zombie's detection range this tells the Zombie to chase or stop, respectively

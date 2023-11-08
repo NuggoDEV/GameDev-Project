@@ -71,7 +71,6 @@ public class SpitterMovement : MonoBehaviour
 
     public IEnumerator Attack() //The actual attack procces of the spitter
     {
-        Debug.Log("Spitter Attacks");
         //rb.velocity = new Vector3(0, 0, 0);
         attacking = true;
         yield return new WaitForSeconds(0.5f);
@@ -85,7 +84,6 @@ public class SpitterMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
         attacking = false;
         //attackRecover = 2; // removed for the time being, managed to work the burst and look feature into the coroutine itself
-        Debug.Log("Spitter recovers");
     }
 
     //When the player enters or exits the spitter's detection range this tells the spitter to chase or stop, respectively
