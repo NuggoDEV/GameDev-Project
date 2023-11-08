@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("escape") && !ShopPanel.activeInHierarchy)
         {
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
             PauseScreen.SetActive(true);
