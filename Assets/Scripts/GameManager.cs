@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject AreYouSurePanel;
     [SerializeField] private GameObject InventoryPanel;
+    [SerializeField] private GameObject ShopPanel;
 
     public int Sun = 30;
     public int Coins = 30;
@@ -39,13 +40,11 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape") && !ShopPanel.activeInHierarchy)
         {
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
             PauseScreen.SetActive(true);
         }
-
     }
-    
 }
