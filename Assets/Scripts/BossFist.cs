@@ -1,51 +1,86 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class BossFist : MonoBehaviour
 {
     public GameObject bossCore;
+    public GameObject gun;
     public GameObject fist;
     public GameObject player;
     public GameObject target;
     public GameObject zombieBits;
-    public GameObject AoE1;
-    public GameObject AoE2;
-    public GameObject AoE3;
+    public GameObject punchAoE;
     public GameObject slamSpot;
-    public GameObject tantrumSpot;
-    public GameObject strikeSpot;
-    public GameObject strikeSpot2;
+    public GameObject slamWaitSpot;
+    public GameObject punchSpot;
+    public GameObject restSpot;
     public GameObject warnerSpawner;
     public GameObject strikeWarner;
     public float maxHP = 50;
     public float currentHP;
+    public float speed = 12.0f;
     public float damage = 30;
+    public float punchSize = 3f;
     private float xOffset;
     public bool punch;
-    public bool slam;
-    public bool tantrum;
+    public bool returning;
+    public bool readied;
+    public bool slamReady;
+    public BossGun gunScript;
+    public BossScript bossScript;
+    Vector3 goUp;
 
     // Start is called before the first frame update
     void Start()
     {
-        bossCore = GameObject.FindGameObjectWithTag("Boss");
         player = GameObject.FindGameObjectWithTag("Player");
         target = GameObject.Find("TrackerFist");
         warnerSpawner = GameObject.Find("WarnerSpawner");
         currentHP = maxHP;
-        //var bits = 
-         //   .LoadAssetAtPath("Assets/Prefabs/ZombieBit.prefab", typeof(GameObject));
-        //zombieBits = bits as GameObject;
-        //var striker = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/StrikeWarner.prefab", typeof(GameObject));
-        //strikeWarner = striker as GameObject;
+        transform.position = restSpot.transform.position;
+        gunScript = gun.GetComponent<BossGun>();
+        bossScript = bossCore.GetComponent<BossScript>();
+        readied = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (returning)
+        {
+            speed = 25f;
+            var shift = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, restSpot.transform.position, shift);
+
+            if (Vector3.Distance(transform.position, restSpot.transform.position) < 0.001f)
+            {
+                returning = false;
+                readied = true;
+                speed = 14f;
+            }
+        }
+        else if (punch)
+        {
+            var shift = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, punchSpot.transform.position, shift);
+
+            if (Vector3.Distance(transform.position, punchSpot.transform.position) < 0.001f)
+            {
+                punch = false;
+                StartCoroutine(Punch());
+            }
+        }
+        else if (gunScript.slam == true)
+        {
+            var shift = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, slamWaitSpot.transform.position, shift);
+
+            if (Vector3.Distance(transform.position, slamWaitSpot.transform.position) < 0.001f)
+            {
+                slamReady = true;
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -63,30 +98,65 @@ public class BossFist : MonoBehaviour
             {
                 Pea script = collision.gameObject.GetComponent<Pea>();
                 currentHP = currentHP - script.damage;
+                bossScript.currentHP -= script.damage;
                 script.lifeTime = 0;
             }
             else if (collision.gameObject.name == "Chomp(Clone)")
             {
                 Chomp script = collision.gameObject.GetComponent<Chomp>();
                 currentHP = currentHP - script.damage;
-                Debug.Log("Holy Shit how did you do that");
+                bossScript.currentHP -= script.damage;
             }
             else if (collision.gameObject.name == "Melon(Clone)")
             {
                 Melon script = collision.gameObject.GetComponent<Melon>();
                 currentHP = currentHP - script.damage;
+                bossScript.currentHP -= script.damage;
                 script.lifeTime = 0;
             }
             else if (collision.gameObject.name == "MelonBomb(Clone)")
             {
                 MelonBomb script = collision.gameObject.GetComponent<MelonBomb>();
                 currentHP = currentHP - script.damage;
+                bossScript.currentHP -= script.damage;
             }
             else
             {
                 Debug.Log("Collider Error");
             }
         }
+    }
+
+    public IEnumerator Punch()
+    {
+        Debug.Log("Boss Punches");
+        yield return new WaitForSeconds(1f);
+        transform.Translate(0.0f, 0.0f, 0.0f);
+        for (int i = 0; i < punchSize; i++)
+        {
+            GameObject temp = Instantiate(strikeWarner, warnerSpawner.transform.position, warnerSpawner.transform.rotation);
+            yield return new WaitForSeconds(1f);
+            while (Vector3.Distance(transform.position, temp.transform.position) > 0.001f)
+            {
+                yield return new WaitForSeconds(0.2f);
+                transform.position = Vector3.MoveTowards(transform.position, temp.transform.position, 10f);
+            }
+            GameObject temp2 = Instantiate(punchAoE, transform.position, transform.rotation);
+            yield return new WaitForSeconds(1f);
+            goUp = new Vector3(transform.position.x, transform.position.y + 3.0f, transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, goUp, speed);
+            yield return new WaitForSeconds(0.1f);
+            goUp = new Vector3(transform.position.x, transform.position.y + 3.0f, transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, goUp, speed);
+            yield return new WaitForSeconds(0.1f);
+            goUp = new Vector3(transform.position.x, transform.position.y + 3.0f, transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, goUp, speed);
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return new WaitForSeconds(2f);
+        returning = true;
+        speed = 14.0f;
+        Debug.Log("Boss stops Punching");
     }
 
     // current idea is to have three attacks; a punch with a moderate AoE that create some debri, a slam with the gun which has a large AoE and large debri

@@ -10,6 +10,8 @@ public class ZombieSpawner : MonoBehaviour
     public GameObject enemySpawner;
     public GameObject[] enemyCounter;
     public GameObject gameManager;
+    public GameObject boss;
+    public GameObject bossSpawn;
     public WaveManager waveScript;
     public float spawnCounter;
     private float timer = 0;
@@ -32,6 +34,10 @@ public class ZombieSpawner : MonoBehaviour
             Vector3 enemyPos = enemySpawner.transform.position;
             Instantiate(spawnCounter == 5 ? spitter : zombie, new Vector3(enemyPos.x + xOffset, enemyPos.y, enemyPos.z), enemySpawner.transform.rotation);
             spawnCounter = spawnCounter == 5 ? 0 : spawnCounter + 1;
+        }
+        if (waveScript.wave == 10)
+        {
+            Instantiate(boss, bossSpawn.transform.position, bossSpawn.transform.rotation);
         }
     }
 

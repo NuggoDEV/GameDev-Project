@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4419445790003941561}
   - component: {fileID: 4419445790003941563}
   - component: {fileID: 3491800630781978792}
-  - component: {fileID: 4419445790003942213}
   - component: {fileID: 9104794605562996360}
   m_Layer: 6
   m_Name: ZombieCore
@@ -116,7 +115,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.7
-  m_Speed: 8
+  m_Speed: 12
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 180
@@ -144,28 +143,6 @@ MonoBehaviour:
   zombieBits: {fileID: 1558609182101647450, guid: 1da7e37e15c7f914481c36cf4a2ebbbd, type: 3}
   maxHP: 10
   currentHP: 0
---- !u!114 &4419445790003942213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4419445790003941566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd54225bc6628074a96d8df42211f58a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: ZombieCore
-  unitLevel: 1
-  damage: 1
-  defense: 1
-  maxHP: 10
-  currentHP: 10
-  Amount_of_Sun: 0
-  Amount_of_Money: 0
-  Item_Number_1: 0
-  Item_Number_2: 0
 --- !u!136 &9104794605562996360
 CapsuleCollider:
   m_ObjectHideFlags: 0

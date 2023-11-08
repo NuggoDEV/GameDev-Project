@@ -28,7 +28,7 @@ public class BossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentHP <= 0 && secondKill == false)
+        if (currentHP <= 0)
         {
             transform.Translate(0.0f, 0.0f, 0.0f);
             for (int i = 0; i < 40; i++)
@@ -36,6 +36,7 @@ public class BossScript : MonoBehaviour
                 xOffset = Random.Range(-1, 1);
                 Instantiate(zombieBits, new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z), transform.rotation);
             }
+            Destroy(bossCore);
         }
     }
 

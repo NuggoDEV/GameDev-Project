@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1578ee4979d23c42b681bec02f2d2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coins: {fileID: 0}
+  Coins: {fileID: 1114165039957431714, guid: 146531e82a4aaf94b9490cfbcdba2773, type: 3}
   timer: 0
   waitTime: 5
