@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8733256871770503106}
   - component: {fileID: 7776588258131631410}
   - component: {fileID: 362333816309127372}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sun Sprite
   m_TagString: sun
   m_Icon: {fileID: 0}
