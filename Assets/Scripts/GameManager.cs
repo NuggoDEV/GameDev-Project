@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,11 +9,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject PauseScreen;
     [SerializeField] private GameObject AreYouSurePanel;
     [SerializeField] private GameObject InventoryPanel;
-    [SerializeField] private GameObject GameOverPanel;
+
     public int Sun = 30;
     public int Coins = 30;
     public bool Weapon_3_Buy = false;
     public bool Weapon_2_Buy = false;
+
 
     public void Play() => SceneManager.LoadScene("GameScene");
     public void Quit() => Application.Quit();
@@ -35,13 +37,15 @@ public class GameManager : MonoBehaviour
         PauseScreen.SetActive(true);
     }
 
-    /*public void Update()
+    public void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
-            //Time.timeScale = 0f;
+            Time.timeScale = 0f;
             PauseScreen.SetActive(true);
         }
-    }*/
+
+    }
+    
 }

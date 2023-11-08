@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,12 +13,14 @@ public class ZombieAttack : MonoBehaviour
     public Unit script;
     public BattleSystem battleScript;
     public Slider hpSlider;
+    public GameObject GameOverPanel;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        hpSlider = GameObject.Find("Canvas/HPanel/HPslider").GetComponent<Slider>();
         timer = 0;
         script = FindObjectOfType<Unit>();
         battleScript = FindObjectOfType<BattleSystem>();
@@ -48,13 +51,9 @@ public class ZombieAttack : MonoBehaviour
             hpSlider.value = script.currentHP;
             Vector3 knockbackDealt = (other.transform.position - transform.position).normalized;
             other.GetComponent<CharacterController>().Move(knockbackDealt * knockback);
-            if (script.currentHP <= 0)  //Once we have an enemy attack coded in move this script to there, to check  if the player is dead
-            {
-                battleScript.GameOverUI.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+
             }
         }
     }
 
-}
+

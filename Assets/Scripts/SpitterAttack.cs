@@ -26,6 +26,7 @@ public class SpitterAttack : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     void FixedUpdate()
@@ -39,12 +40,6 @@ public class SpitterAttack : MonoBehaviour
         {
             script = other.GetComponent<Unit>();
             script.currentHP = script.currentHP - damage;
-            if (script.currentHP <= 0)  //Once we have an enemy attack coded in move this script to there, to check  if the player is dead
-            {
-                battleScript.GameOverUI.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
             Destroy(gameObject);
         }
 
