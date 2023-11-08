@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -17,24 +16,20 @@ public class WaveManager : MonoBehaviour
 
     public int wave { get; private set; } = 1;
 
-    void Start() => StartCoroutine(StartWaveCoroutine(1));
-    public void FinishWave(bool playerDied) => StartCoroutine(FinishWaveCoroutine(playerDied));
+    void Start() => StartCoroutine(StartWaveCoroutine(wave));
+    public void FinishWave() => StartCoroutine(FinishWaveCoroutine());
 
     private IEnumerator StartWaveCoroutine(int wave)
     {
-        Debug.Log("Pls");
+        Debug.Log($"Starting wave {wave}");
         
         startWave?.Invoke(wave, (int) Math.Round(((wave * 1.5) + 2) * 1.75));
-
-        yield return null;
+        yield return new WaitForSeconds(5);
     }
-    private IEnumerator FinishWaveCoroutine(bool playerDied)
+    private IEnumerator FinishWaveCoroutine()
     {
         finishWave?.Invoke();
-
-        if (!playerDied)
-            yield return StartCoroutine(StartWaveCoroutine(wave++));
-        yield return EndGame();
+        yield return StartCoroutine(StartWaveCoroutine(wave++));
     }
 
     private IEnumerator EndGame()

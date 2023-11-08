@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
@@ -28,17 +29,9 @@ public class ZombieSpawner : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            if (spawnCounter < 5)
-            {
-                Instantiate(zombie, new Vector3(enemySpawner.transform.position.x + xOffset, enemySpawner.transform.position.y, enemySpawner.transform.position.z), enemySpawner.transform.rotation);
-                spawnCounter++;
-            }
-
-            else if (spawnCounter == 5)
-            {
-                Instantiate(spitter, new Vector3(enemySpawner.transform.position.x + xOffset, enemySpawner.transform.position.y, enemySpawner.transform.position.z), enemySpawner.transform.rotation);
-                spawnCounter = 0;
-            }
+            Vector3 enemyPos = enemySpawner.transform.position;
+            Instantiate(spawnCounter == 5 ? spitter : zombie, new Vector3(enemyPos.x + xOffset, enemyPos.y, enemyPos.z), enemySpawner.transform.rotation);
+            spawnCounter = spawnCounter == 5 ? 0 : spawnCounter + 1;
         }
     }
 
@@ -53,7 +46,7 @@ public class ZombieSpawner : MonoBehaviour
             timer = timer + Time.deltaTime;
             if (timer >= 5)
             {
-                waveScript.FinishWave(false);
+                waveScript.FinishWave();
                 timer = 0;
             }
         }
