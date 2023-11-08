@@ -11,15 +11,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject InventoryPanel;
     [SerializeField] private GameObject ShopPanel;
 
-    public int Sun = 30;
-    public int Coins = 30;
+    public int Sun = 0;
+    public int Coins = 0;
     public bool Weapon_3_Buy = false;
     public bool Weapon_2_Buy = false;
 
 
     public void Play() => SceneManager.LoadScene("GameScene");
     public void Quit() => Application.Quit();
-    public void MainMenu() => SceneManager.LoadScene("MainMenu");
+    public void MainMenu()
+    {
+        Cursor.visible = true;
+        SceneManager.LoadScene("MainMenu");
+    }
     public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked;

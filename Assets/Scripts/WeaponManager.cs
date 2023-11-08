@@ -70,25 +70,19 @@ public class WeaponManager : MonoBehaviour
             weapon.transform.Rotate(90, 0, 0, Space.Self);
             weaponScript = weapon.GetComponent<WeaponScript>();
         }
-        if (gameManager.Weapon_2_Buy == true)
+        if (gameManager.Weapon_2_Buy && Input.GetKeyDown("2"))
         {
-            if (Input.GetKeyDown("2") /*&& script.Weapon_2_Buy*/)
-            {
-                Destroy(weapon);
-                weapon = Instantiate(Chomper, weaponTransform.position, weaponTransform.rotation, weaponTransform);
-                weapon.transform.Rotate(90, 0, 0, Space.Self);
-                weaponScript = weapon.GetComponent<WeaponScript>();
-            }
+            Destroy(weapon);
+            weapon = Instantiate(Chomper, weaponTransform.position, weaponTransform.rotation, weaponTransform);
+            weapon.transform.Rotate(90, 0, 0, Space.Self);
+            weaponScript = weapon.GetComponent<WeaponScript>();
         }
-        if (gameManager.Weapon_3_Buy == true)
+        if (gameManager.Weapon_3_Buy && Input.GetKeyDown("3"))
         {
-            if (Input.GetKeyDown("3")/* && script.Weapon_3_Buy*/)
-            {
-                Destroy(weapon);
-                weapon = Instantiate(Melon, weaponTransform.position, weaponTransform.rotation, weaponTransform);
-                weapon.transform.Rotate(90, 0, 0, Space.Self);
-                weaponScript = weapon.GetComponent<WeaponScript>();
-            }
+            Destroy(weapon);
+            weapon = Instantiate(Melon, weaponTransform.position, weaponTransform.rotation, weaponTransform);
+            weapon.transform.Rotate(90, 0, 0, Space.Self);
+            weaponScript = weapon.GetComponent<WeaponScript>();
         }
 
         if (Input.GetButtonDown("Fire1"))
